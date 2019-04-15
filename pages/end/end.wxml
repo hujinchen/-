@@ -1,0 +1,23 @@
+<!--pages/end/end.wxml-->
+<!-- 自定义顶部状态栏高度结构 -->
+<view style='padding-top:{{statusBarHeight}}px;'></view>
+
+<view class='page' style='padding-top:{{titleBarHeight}}px;'>
+    <view class='f_center v1' style='width:{{canvasWidth}}px;height:{{canvasWidth-12}}px'>
+        <image class='canvas_img' src='{{imgUrl}}'></image>
+    </view>
+
+    <button open-type='share' style='background: none' class='f_center {{hide?"":"btn"}}'>
+        <image class='{{hide?"img2":"img1"}}' style='margin-top: 40rpx' src='../../image/end/show.png'></image>
+    </button>
+
+    <image class='{{hide?"btn img1":"img2"}}' bindtap='gohomo' style='margin-top:20rpx;' src='../../image/end/play.png'></image>
+
+    <!-- 
+        canvas 设置display:none 隐藏 和 hidden、 wx:if 隐藏都没有效果 
+        width:0px;height:0px;overflow:hidden;position:fixed;left:-100%;bottom:0 这样才有效
+    -->
+    <view style='width:0px;height:0px;overflow:hidden;position:fixed;left:-100%;bottom:0' wx:if='{{!hide}}'>
+        <canvas canvas-id='canvas'></canvas>
+    </view>
+</view>

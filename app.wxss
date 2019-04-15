@@ -1,0 +1,41 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+
+.f_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mask_view {
+    width: 50%;
+    height: 35%;
+    border-radius: 70rpx;
+    background: #fd898a;
+    position: relative;
+}
+
+button::after {
+    border: none;
+}

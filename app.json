@@ -1,0 +1,13 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/details/details",
+        "pages/end/end"
+    ],
+    "window": {
+        "navigationStyle": "custom",
+        "backgroundTextStyle": "light",
+        "navigationBarTextStyle": "black"
+    },
+    "sitemapLocation": "sitemap.json"
+}

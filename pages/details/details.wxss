@@ -1,0 +1,132 @@
+/* pages/details/details.wxss */
+
+page {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: url('https://s2.ax1x.com/2019/04/11/A7lTxO.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.page_view {
+    width: 90%;
+    margin-left: 4%;
+    height: 100%;
+}
+
+.canvas {
+    background: #fff;
+    position: relative;
+    z-index: 100;
+}
+
+.cImg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 11;
+}
+
+.img1 {
+    width: 106rpx;
+    height: 106rpx;
+    position: fixed;
+    bottom: 0.5%;
+    left: 12%;
+}
+
+.img2 {
+    width: 106rpx;
+    height: 106rpx;
+    position: fixed;
+    bottom: 0.5%;
+    right: 12%;
+}
+
+.scrollview {
+    width: 96%;
+    height: 112rpx;
+    border: 10rpx solid #f75451;
+    border-radius: 40rpx;
+    margin-top: -10rpx;
+    white-space: pre;
+    padding: 0rpx 2%;
+    background: #fff;
+}
+
+.view2 {
+    width: 100%;
+    height: 124rpx;
+    line-height: 124rpx;
+    border: 10rpx solid #f75451;
+    border-radius: 40rpx;
+    margin-top: 20rpx;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.smalls {
+    animation: smallssl 0.5s linear 1 forwards;
+    width: 85rpx;
+    height: 85rpx;
+    margin-right: 20rpx;
+    margin-top: 14rpx;
+    border-radius: 14rpx;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.smalls2 {
+    width: 85rpx;
+    height: 85rpx;
+    margin-right: 20rpx;
+    margin-top: 14rpx;
+    border-radius: 14rpx;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.smalls3 {
+    width: 85rpx;
+    height: 85rpx;
+    border-radius: 14rpx;
+}
+
+@keyframes smallssl {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.7);
+    }
+
+    70% {
+        transform: scale(0.7);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.moveup {
+    animation: moveup 0.1s linear 1 forwards;
+}
+
+@keyframes moveup {
+    100% {
+        transform: translateY(-14rpx);
+    }
+}

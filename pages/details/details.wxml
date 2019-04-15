@@ -1,0 +1,40 @@
+<!--pages/details/details.wxml-->
+<!-- 自定义顶部状态栏高度结构 -->
+<view style='padding-top:{{statusBarHeight}}px;'></view>
+
+<view class='page' style='padding-top:{{titleBarHeight}}px;'>
+    <view class='page_view'>
+        <!--  在画布外面包一层，加上边框 -->
+        <view class='canvas_view' style='width:{{canvasWidth}}px;height:{{canvasWidth}}px;border: 10rpx solid #f75451'>
+            <canvas disable-scroll="true" style='width:{{canvasWidth}}px;height:{{canvasWidth}}px' canvas-id="myCanvas" class="canvas">
+                <cover-image style='width:{{canvasWidth}}px;height:{{canvasWidth}}px' wx:if='{{imgUrl}}' hidden='{{showImg}}' binderror="imgBinderror" bindload="imgBindload" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" class="cImg" src="{{imgUrl}}"></cover-image>
+            </canvas>
+        </view>
+
+        <image src='../../image/draw/dian.png' style='width:76%;height:40rpx;margin-left:12%'></image>
+
+        <!-- 颜色栏 -->
+        <scroll-view scroll-x='true' class='scrollview'>
+            <block wx:for='{{colordata}}' wx:key='{{index}}'>
+                <view class='{{item.choose?"smalls":"smalls2"}}'>
+                    <image class='smalls3' bindtap='color' data-choose='{{item.choose}}' data-auido='{{item.audioUrl}}' data-color='{{item.color}}' src='{{item.path}}'></image>
+                </view>
+            </block>
+        </scroll-view>
+
+        <!-- 操作栏 -->
+        <view class='view2'>
+            <image style='width:53rpx;height:62rpx' data-name='4' bindtap='colorSelect' src='../../image/draw/brush1.png' class='{{operation[0]?"moveup":""}}' data-idx='0' data-audio='/audio/tool/smallpen.mp3'></image>
+            <image style='width:68rpx;height:81rpx' data-name='8' bindtap='colorSelect' src='../../image/draw/brush2.png' class='{{operation[1]?"moveup":""}}' data-idx='1' data-audio='/audio/tool/middlepen.mp3'></image>
+            <image style='width:84rpx;height:99rpx' data-name='12' bindtap='colorSelect' src='../../image/draw/brush3.png' class='{{operation[2]?"moveup":""}}' data-idx='2' data-audio='/audio/tool/bigpen.mp3'></image>
+            <image style='width:71rpx;height:97rpx' data-name='rubber' bindtap='clearCanvas' src='../../image/draw/rubber.png' class='{{operation[3]?"moveup":""}}' data-idx='2' data-audio='/audio/tool/eraser.mp3'></image>
+            <image style='width:87rpx;height:96rpx' data-name='empty' bindtap='colorSelect' src='../../image/draw/trash.png' data-audio='/audio/tool/clear.mp3'></image>
+        </view>
+
+        <!-- 首页 -->
+        <image bindtap='home' class='img1' src='../../image/draw/home.png'></image>
+
+        <!-- 保存图片 -->
+        <image bindtap='save' class='img2' src='../../image/draw/ok.png'></image>
+    </view>
+</view>

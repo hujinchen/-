@@ -1,0 +1,49 @@
+<!--index.wxml-->
+<!-- 自定义顶部状态栏高度结构 -->
+<view style='padding-top:{{statusBarHeight}}px;'></view>
+<!-- 自定义顶部导航栏高度结构 -->
+<view style='padding-top:{{titleBarHeight}}px;position:relative'>
+    <image class='img1' src='../../image/ear.png'></image>
+    <image class='img2' src='../../image/ear.png'></image>
+</view>
+
+<view class='page'>
+    <!-- 左边分类栏 -->
+    <view class='v1'>
+        <block wx:for='{{config}}' wx:key='{{index}}'>
+            <view bindtap='leftClass' data-item='{{item}}' style='background:{{item.choose?"#ffeaeb":item.bgColor}};width:{{item.choose?90:75}}%;' class='f_center left_v'>
+                <image wx:if='{{load}}' src='{{item.coverImg}}'></image>
+            </view>
+        </block>
+    </view>
+
+    <!-- 右边区域 -->
+    <scroll-view scroll-into-view="NAV{{tdName}}" scroll-y='true' class='v2'>
+        <block wx:for='{{rightdata}}' wx:key='{{index}}'>
+            <view bindtap='details' id="NAV{{item.tdname}}" data-item='{{item}}' class='right_v'>
+                <image wx:if='{{load}}' class='right_v_img' src='{{!item.saveImg?item.img:item.saveImg}}'></image>
+
+                <!-- 遮罩层 -->
+                <view class='right_v_mask' wx:if='{{item.isLocked}}'>
+                    <!-- 锁 -->
+                    <image class='lockimg' src='../../image/locked.png'></image>
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+</view>
+
+<!-- 全屏遮罩层 -->
+<view wx:if='{{boxFlg}}' class='mask' bindtap='mask'>
+    <image wx:if='{{isShare}}' class='light' src='../../image/4.png'></image>
+    <view catchtap='useless' class='mask_view f_center'>
+        <view class='view_share f_center'>
+            <image bindtap='mask' class='close' src='../../image/3.png'></image>
+            <view class='imgContent2' style='display:{{isShare?"none":""}}'></view>
+            <image class='imgContent' src='{{imgContent}}' mode='widthFix'></image>
+            <image class='{{isShare?"lockimg3":"lockimg2"}}' src='../../image/{{isShare?"unlocked":"locked"}}.png'></image>
+        </view>
+
+        <button wx:if='{{!isShare}}' open-type='share' class='f_center'></button>
+    </view>
+</view>
